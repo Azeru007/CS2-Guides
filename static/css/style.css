@@ -1,0 +1,65 @@
+h1 {
+    color:blue;
+    font-family: "Counter-Strike";
+    padding-left: 650px
+}
+
+p, h2 {
+    color: blue;
+    text-align: center;
+    transition: all 1s;
+}
+
+h2:hover { 
+    color: darkorange;
+    font-size: 30px;
+    transition: all 1s;
+} 
+
+h2 {
+  font-family: "Counter-Strike";
+}
+
+h3 {
+  color: blue;
+  border: yellow;
+  padding-left: 350px;
+  font-family: "Counter-Strike";
+}
+
+ul {
+    color: blue;
+    padding-left: 80%;
+    font-family: "Counter-Strike";
+}
+
+ol {
+  color: darkorange;
+  padding-left: 15%;
+  font-family: "Counter-Strike";
+}
+
+div{
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+
+h5 {
+  color: darkorange;
+  font-family: "Counter-Strike";
+}
+
+img {
+  padding-left: 20px;
+}
+
+a {
+  color: darkorange;
+  font-family: "Counter-Strike";
+}
+
+h4 {
+  color: darkorange;
+  font-family: "Counter-Strike";
+}
