@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Quiz obrazkowy</title>
+
+<style>
+
+body {
+    text-align: center;
+    font-family: Arial;
+
+    background-image: url("static/img/CS2.png");
+            
+    background-size: cover;
+
+    background-position: center;
+            
+    background-repeat: no-repeat;
+            
+    background-attachment: fixed;
+}
+
+img {
+    width: 500px;
+    margin: 10px;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: 0.2s;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+
+</style>
+
+</head>
+<body>
+
+<h2 id="pytanie"></h2>
+<div id="odpowiedzi"></div>
+<h3 id="wynik"></h3>
+
+<script>
+
+// 🔹 Baza pytań
+let pytania = [
+    {
+        pytanie: "How to throw a smoke from TT spawn to CT Entry?",
+        odpowiedzi: [
+            { img: "static/img/Smokes/Mirage/TT/CT Entry.png", poprawna: true },
+            { img: "static/img/Smokes/Mirage/TT/Jungle.png", poprawna: false },
+            { img: "static/img/Smokes/Mirage/TT/Stairs.png", poprawna: false }
+        ]
+    },
+    {
+        pytanie: "How to throw a smoke from TT spawn to Jungle?",
+        odpowiedzi: [
+            { img: "static/img/Smokes/Mirage/TT/Jungle.png", poprawna: true },
+            { img: "static/img/Smokes/Mirage/TT/Stairs.png", poprawna: false },
+            { img: "static/img/Smokes/Mirage/TT/CT Entry.png", poprawna: false }
+        ]
+    },
+    {
+        pytanie: "How to throw a smoke from TT spawn to Window?",
+        odpowiedzi: [
+            { img: "static/img/Smokes/Mirage/TT/Window.png", poprawna: true },
+            { img: "static/img/Smokes/Mirage/TT/Connector.png", poprawna: false },
+            { img: "static/img/Smokes/Mirage/TT/Short.png", poprawna: false }
+        ]
+    },
+    {
+        pytanie: "How to throw a smoke from TT house to B Short?",
+        odpowiedzi: [
+            { img: "static/img/Smokes/Mirage/TT/Kitchen.png", poprawna: false },
+            { img: "static/img/Smokes/Mirage/TT/B Short.png", poprawna: true },
+            { img: "static/img/Smokes/Mirage/TT/B Window.png", poprawna: false }
+        ]
+    },
+    {
+        pytanie: "How to throw a smoke from CT spawn to Ramp?",
+        odpowiedzi: [
+            { img: "static/img/Smokes/Mirage/CT/Connector.png", poprawna: false },
+            { img: "static/img/Smokes/Mirage/CT/Palace.png", poprawna: false },
+            { img: "static/img/Smokes/Mirage/CT/Ramp.png", poprawna: true }
+        ]
+    },
+    {
+        pytanie: "How to throw a smoke from CT spawn to Mid Entry??",
+        odpowiedzi: [
+            { img: "static/img/Smokes/Mirage/CT/Right Boxes.png", poprawna: false },
+            { img: "static/img/Smokes/Mirage/CT/Mid Short.png", poprawna: false },
+            { img: "static/img/Smokes/Mirage/CT/Mid Entry.png", poprawna: true }
+        ]
+    }
+];
+
+// 🔹 Tasowanie pytań
+pytania.sort(() => Math.random() - 0.5);
+
+let index = 0;
+let wynik = 0;
+
+// 🔹 Pokazanie pytania
+function pokazPytanie() {
+
+    if (index >= pytania.length) {
+        document.getElementById("pytanie").innerText = "Koniec quizu!";
+        document.getElementById("odpowiedzi").innerHTML = "";
+        document.getElementById("wynik").innerText = "Twój wynik: " + wynik + "/" + pytania.length;
+        return;
+    }
+
+    let aktualne = pytania[index];
+
+    document.getElementById("pytanie").innerText = aktualne.pytanie;
+
+    let html = "";
+
+    aktualne.odpowiedzi.forEach((odp) => {
+        html += `<img src="${odp.img}" onclick="klik(${odp.poprawna})">`;
+    });
+
+    document.getElementById("odpowiedzi").innerHTML = html;
+}
+
+// 🔹 Kliknięcie odpowiedzi
+function klik(poprawna) {
+    if (poprawna) {
+        wynik++;
+    }
+
+    index++;
+    pokazPytanie();
+}
+
+// start
+pokazPytanie();
+
+</script>
+    <h2><a href="/mirage smokes">Back</a></h2>
+    <h2><a href="/mirage smokes quiz">Restart quiz</a></h2>
+</body>
+</html>

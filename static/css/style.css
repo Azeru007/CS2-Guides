@@ -1,7 +1,6 @@
 h1 {
     color:blue;
     font-family: "Counter-Strike";
-    padding-left: 650px
 }
 
 p, h2 {
@@ -62,4 +61,32 @@ a {
 h4 {
   color: darkorange;
   font-family: "Counter-Strike";
+}
+
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 60%;
+    font-family: Arial, sans-serif;
+}
+
+table, th, td {
+    border: 1px solid blue;
+}
+
+th {
+    background-color: blue;
+    color: white;
+    padding: 12px;
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #d6e4ff;
+    transition: 0.2s;
 }
